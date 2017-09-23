@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
 import { AppLoading } from 'expo';
 import Slides from '../components/Slides';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 const SLIDE_DATA = [
   { text: 'Welcome to JobApp', color: '#03A9F4' },
@@ -25,7 +27,7 @@ class WelcomeScreen extends Component {
   }
 
   onSlidesComplete = () => {
-    this.props.navigation.navigate('auth');
+    this.props.facebookLogin();
   }
 
   render() {
@@ -39,4 +41,8 @@ class WelcomeScreen extends Component {
   }
 }
 
-export default WelcomeScreen;
+function mapStateToProps({ auth }) {
+  return { token: auth.token };
+}
+
+export default connect(mapStateToProps, actions)(WelcomeScreen);

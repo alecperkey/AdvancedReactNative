@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
+import firebase from 'firebase';
 
 import registerForNotifications from './services/push_notifications';
 import store from './store';
@@ -27,6 +28,28 @@ class App extends React.Component {
         );
       }
     });
+
+
+// Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBPNNlQyjs99vDZ3IHg5Dif-1hG3FGLEjw",
+      authDomain: "notes-fc461.firebaseapp.com",
+      databaseURL: "https://notes-fc461.firebaseio.com",
+      projectId: "notes-fc461",
+      storageBucket: "notes-fc461.appspot.com",
+      messagingSenderId: "926298872501"
+    };
+    firebase.initializeApp(config);
+// Listen for authentication state to change.
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user != null) {
+        console.log('firebase is authenticated now!');
+
+      }
+
+      // Do other things
+    });
+
   }
 
   render() {
@@ -52,7 +75,7 @@ class App extends React.Component {
       }
     }, {
       navigationOptions: {
-        tabBar: { visible: false }
+        tabBarVisible: false
       },
       lazyLoad: true
     });

@@ -8,9 +8,9 @@ import SignInForm from './components/SignInForm';
 class App extends React.Component {
   componentDidMount() {
     const config = {
-      apiKey: "AIzaSyBpFizhxnivnP5qJ6WqLvZh62r26QAvwVY",
+      apiKey: "AIzaSyDIP0UGGNRqFP946TWk3CcfWtwKO7Yyn_s",
       authDomain: "one-time-password-c725a.firebaseapp.com",
-      databaseURL: "https://one-time-password-c725a.firebaseio.com",
+      databaseURL: "https://positive-head.firebaseio.com/",
       storageBucket: "one-time-password-c725a.appspot.com",
       messagingSenderId: "961764633756"
     };
