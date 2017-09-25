@@ -14,7 +14,7 @@ import DeckScreen from './screens/DeckScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import ReviewScreen from './screens/ReviewScreen';
 
-class App extends React.Component {
+export default class App extends React.Component {
   componentDidMount() {
     registerForNotifications();
     Notifications.addListener((notification) => {
@@ -96,5 +96,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-Expo.registerRootComponent(App);
